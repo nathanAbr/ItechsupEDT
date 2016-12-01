@@ -13,7 +13,7 @@
                 <MenuItem Header="_Ajouter">
                     <MenuItem Header="Matiere" />
                     <MenuItem Header="Formation" />
-                    <MenuItem Header="Promotion" />
+                    <MenuItem Header="Promotion"/>
                     <MenuItem Header="Eleve" />
                     <MenuItem Header="Formateur" />
                 </MenuItem>
