@@ -34,10 +34,6 @@ namespace ItechSupEDT.Modele
         }
         public Formation(String _nom, float _nbHeuresTotal, List<Matiere> _lstMatiere)
         {
-            if (_lstMatiere.Count < 1)
-            {
-                throw new FormationException("Une formation doit avoir au moins une matière.");
-            }
             this.Nom = _nom;
             this.NbHeuresTotal = _nbHeuresTotal;
             this.LstMatiere = _lstMatiere;

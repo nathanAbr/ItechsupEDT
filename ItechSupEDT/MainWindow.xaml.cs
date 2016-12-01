@@ -25,5 +25,11 @@ namespace ItechSupEDT
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
         }
+
+        private void mi_ajout_formation_Click(object sender, RoutedEventArgs e)
+        {
+            Ajout_UC.AjoutFormation ajoutFormation = new Ajout_UC.AjoutFormation();
+            this.Ajout.Content = ajoutFormation;
+        }
     }
 }
