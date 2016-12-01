@@ -11,7 +11,7 @@
         <StackPanel DockPanel.Dock="Top">
             <Menu>
                 <MenuItem Header="_Ajouter">
-                    <MenuItem Header="Matiere" />
+                    <MenuItem x:Name="mi_ajoutMatiere" Header="Matiere" Click="mi_ajoutMatiere_Click" />
                     <MenuItem Header="Formation" />
                     <MenuItem Header="Promotion" />
                     <MenuItem Header="Eleve" />
