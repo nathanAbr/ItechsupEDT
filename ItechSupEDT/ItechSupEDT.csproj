@@ -55,10 +55,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Ajout_UC\AjoutEleve.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ajout_UC\AjoutFormateur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ajout_UC\AjoutFormation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ajout_UC\AjoutMatiere.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ajout_UC\AjoutPromotion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Ajout_UC\AjoutEleve.xaml.cs">
+      <DependentUpon>AjoutEleve.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ajout_UC\AjoutFormateur.xaml.cs">
+      <DependentUpon>AjoutFormateur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ajout_UC\AjoutFormation.xaml.cs">
+      <DependentUpon>AjoutFormation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ajout_UC\AjoutMatiere.xaml.cs">
+      <DependentUpon>AjoutMatiere.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ajout_UC\AjoutPromotion.xaml.cs">
+      <DependentUpon>AjoutPromotion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

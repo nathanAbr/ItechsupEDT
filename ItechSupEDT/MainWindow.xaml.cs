@@ -25,5 +25,11 @@ namespace ItechSupEDT
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
         }
+
+        private void mi_ajout_matiere_Click(object sender, RoutedEventArgs e)
+        {
+            Ajout_UC.AjoutMatiere ajoutMatiere = new Ajout_UC.AjoutMatiere();
+            this.Ajout.Content = ajoutMatiere;
+        }
     }
 }
