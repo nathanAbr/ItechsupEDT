@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:ItechSupEDT"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top">
+            <Menu>
+                <MenuItem Header="_Ajouter">
+                    <MenuItem Header="Matiere" />
+                    <MenuItem Header="Formation" />
+                    <MenuItem Header="Promotion" />
+                    <MenuItem Header="Eleve" />
+                    <MenuItem Header="Formateur" />
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <ContentControl x:Name="Ajout"/>
+
+    </DockPanel>
+
 </Window>

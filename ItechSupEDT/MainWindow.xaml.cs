@@ -22,6 +22,7 @@ namespace ItechSupEDT
     {
         public MainWindow()
         {
+            this.WindowState = WindowState.Maximized;
             InitializeComponent();
         }
     }

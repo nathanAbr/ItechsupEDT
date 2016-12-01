@@ -69,6 +69,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modele\Absence.cs" />
+    <Compile Include="Modele\Destinataire.cs" />
+    <Compile Include="Modele\Eleve.cs" />
+    <Compile Include="Modele\EmploisDuTemps.cs" />
+    <Compile Include="Modele\Formateur.cs" />
+    <Compile Include="Modele\Formation.cs" />
+    <Compile Include="Modele\Matiere.cs" />
+    <Compile Include="Modele\Promotion.cs" />
+    <Compile Include="Modele\Salle.cs" />
+    <Compile Include="Modele\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
