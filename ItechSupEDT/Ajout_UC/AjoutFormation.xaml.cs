@@ -35,7 +35,7 @@ namespace ItechSupEDT.Ajout_UC
                 float duree = Single.Parse(nbHeures);
                 try
                 {
-                    Formation formation = new Formation(nom, duree, lstMatiere);
+                    //Formation formation = new Formation(nom, duree, lstMatiere);
                 }
                 catch(Formation.FormationException error)
                 {

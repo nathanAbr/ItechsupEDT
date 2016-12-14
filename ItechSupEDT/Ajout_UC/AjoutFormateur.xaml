@@ -6,7 +6,27 @@
              xmlns:local="clr-namespace:ItechSupEDT.Ajout_UC"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+    <StackPanel HorizontalAlignment="Center">
+        <StackPanel>
+            <TextBlock x:Name="tbk_errorMessage" />
+        </StackPanel>
+        <DockPanel LastChildFill="True" Margin="5">
+            <TextBlock DockPanel.Dock="Left">Nom du formateur :</TextBlock>
+            <TextBox DockPanel.Dock="Right" x:Name="tb_nomFormateur" MinWidth="150"/>
+            <Rectangle/>
+        </DockPanel>
+        <DockPanel LastChildFill="True" Margin="5">
+            <TextBlock DockPanel.Dock="left">Prénom du formateur :</TextBlock>
+            <TextBox DockPanel.Dock="Right" x:Name="tb_prenomFormateur" MinWidth="150"/>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <DockPanel LastChildFill="True" Margin="5">
+            <TextBlock DockPanel.Dock="Left">ail du formateur :</TextBlock>
+            <TextBox DockPanel.Dock="Right" x:Name="tb_mailFormateur" MinWidth="150"/>
+            <StackPanel />
+        </DockPanel>
+        <StackPanel Margin="5">
+            <Button x:Name="btn_ajoutFormation" Content="Ajouter" Width="100" Click="btn_ajoutFormation_Click"/>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
