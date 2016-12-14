@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:ItechSupEDT.Ajout_UC"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Orientation="Horizontal" Margin="0,0,-68,-43" HorizontalAlignment="Center">
-        <ListView x:Name="lv_listeObject" Width="150" Margin="5">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ListView x:Name="lv_listeObject" HorizontalAlignment="Center" Margin="5">
         </ListView>
         <StackPanel VerticalAlignment="Center">
             <Button x:Name="btn_push" Content="Ajouter" Margin="5" Click="btn_push_Click"/>
             <Button x:Name="btn_pull" Content="Retirer" Margin="5" Click="btn_pull_Click"/>
         </StackPanel>
 
-        <ListView x:Name="lv_selectedObject" Width="150" Margin="5">
+        <ListView x:Name="lv_selectedObject" HorizontalAlignment="Center" Margin="5">
         </ListView>
     </StackPanel>
 </UserControl>

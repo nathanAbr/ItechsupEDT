@@ -32,6 +32,10 @@ namespace ItechSupEDT.Modele
             get { return this.lstMatiere; }
             set { this.lstMatiere = value; }
         }
+        public Formation(String _nom)
+        {
+            this.Nom = _nom;
+        }
         public Formation(String _nom, float _nbHeuresTotal, List<Matiere> _lstMatiere)
         {
             this.Nom = _nom;
