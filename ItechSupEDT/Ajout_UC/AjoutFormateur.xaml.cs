@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ItechSupEDT.Modele;
+using ItechSupEDT.Ajout_UC;
 
 namespace ItechSupEDT.Ajout_UC
 {
@@ -20,9 +22,11 @@ namespace ItechSupEDT.Ajout_UC
     /// </summary>
     public partial class AjoutFormateur : UserControl
     {
-        public AjoutFormateur()
+        public AjoutFormateur(List<MultiSelectedObject> _lstMatiere)
         {
             InitializeComponent();
+            MutliSelectPickList multiSelect = new MutliSelectPickList(_lstMatiere);
+            this.MultiSelect.Content = multiSelect;
         }
     }
 }

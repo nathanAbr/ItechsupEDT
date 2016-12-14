@@ -46,5 +46,12 @@ namespace ItechSupEDT
             AjoutPromotion ajoutPromotion = new AjoutPromotion(new List<Formation>(), lstEleves);
             this.Ajout.Content = ajoutPromotion;
         }
+
+        private void mi_ajout_formateur_Click(object sender, RoutedEventArgs e)
+        {
+            List<MultiSelectedObject> lstMatiere = new List<MultiSelectedObject>();
+            AjoutFormateur ajoutFormateur = new AjoutFormateur(lstMatiere);
+            this.Ajout.Content = ajoutFormateur;
+        }
     }
 }
