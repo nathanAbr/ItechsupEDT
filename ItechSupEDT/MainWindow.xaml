@@ -13,7 +13,7 @@
                 <MenuItem Header="_Ajouter">
                     <MenuItem x:Name="mi_ajout_matiere" Header="Matiere" Click="mi_ajout_matiere_Click"/>
                     <MenuItem Header="Formation" />
-                    <MenuItem Header="Promotion"/>
+                    <MenuItem x:Name="mi_ajout_promotion" Header="Promotion" Click="mi_ajout_promotion_Click"/>
                     <MenuItem Header="Eleve" />
                     <MenuItem Header="Formateur" />
                 </MenuItem>

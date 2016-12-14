@@ -30,8 +30,15 @@ namespace ItechSupEDT
 
         private void mi_ajout_matiere_Click(object sender, RoutedEventArgs e)
         {
-            Ajout_UC.AjoutMatiere ajoutMatiere = new Ajout_UC.AjoutMatiere();
+            AjoutMatiere ajoutMatiere = new AjoutMatiere();
             this.Ajout.Content = ajoutMatiere;
+        }
+
+        private void mi_ajout_promotion_Click(object sender, RoutedEventArgs e)
+        {
+            List<MultiSelectedObject> lstEleves = new List<MultiSelectedObject>();
+            AjoutPromotion ajoutPromotion = new AjoutPromotion(new List<Formation>(), lstEleves);
+            this.Ajout.Content = ajoutPromotion;
         }
     }
 }

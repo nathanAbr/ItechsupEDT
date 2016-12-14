@@ -24,16 +24,31 @@ namespace ItechSupEDT.Ajout_UC
     {
         private ObservableCollection<String> objectList;
         private ObservableCollection<String> lstNom;
-        public MutliSelectPickList(List<MultiSelectedObject> _objectList)
+        private List<MultiSelectedObject> maList;
+
+        public List<MultiSelectedObject> MaList
+        {
+            get { return maList; }
+            set { maList = value; }
+        }
+
+        /**private DependencyProperty multiSelectObject;
+
+        public List<MultiSelectedObject> MultiSelectObject
+        {
+            get { return (List<MultiSelectedObject>)GetValue(multiSelectObject); }
+            set { SetValue(multiSelectObject, value); }
+        }**/
+        public MutliSelectPickList(List<MultiSelectedObject> _maList)
         {
             InitializeComponent();
             objectList = new ObservableCollection<String>();
             lstNom = new ObservableCollection<String>();
-            foreach(MultiSelectedObject objet in _objectList)
+            this.MaList = _maList;
+            foreach(MultiSelectedObject objet in this.MaList)
             {
                 this.objectList.Add(objet.getNom());
             }
-
             this.SetListview();
         }
 
