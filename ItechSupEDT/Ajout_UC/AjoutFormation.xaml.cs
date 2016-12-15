@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ItechSupEDT.Modele;
+using ItechSupEDT.Outils;
 
 namespace ItechSupEDT.Ajout_UC
 {
@@ -21,9 +22,17 @@ namespace ItechSupEDT.Ajout_UC
     /// </summary>
     public partial class AjoutFormation : UserControl
     {
-        public AjoutFormation()
+        private Formation formation;
+        private List<Matiere> _lstMatiere = new List<Matiere>();
+        public AjoutFormation(List<Nameable> _lstMatiere)
         {
             InitializeComponent();
+            foreach (Matiere matiere in MatiereDB.GetInstance().LstMatiere)
+            {
+                _lstMatiere.Add(matiere);
+            }
+            MutliSelectPickList multiSelect = multiSelect = new MutliSelectPickList(_lstMatiere);
+            this.MultiSelect.Content = multiSelect;
         }
 
         public AjoutFormation(Formation _formation)
@@ -35,25 +44,28 @@ namespace ItechSupEDT.Ajout_UC
 
         private void btn_ajoutFormation_Click(object sender, RoutedEventArgs e)
         {
+            List<Nameable> lstMatiere = new List<Nameable>(((MutliSelectPickList)this.MultiSelect.Content).GetSelectedObjects());
+            foreach(Nameable matiere in lstMatiere)
+            {
+                this._lstMatiere.Add((Matiere)matiere);
+            }
+            
             String nom = tb_nomFormation.Text;
             String nbHeures = tb_dureeFormation.Text;
             try
             {
                 float duree = Single.Parse(nbHeures);
-                try
-                {
-                    //Formation formation = new Formation(nom, duree, lstMatiere);
-                }
-                catch(Formation.FormationException error)
-                {
-                    tbk_errorMessage.Text = error.Message;
-                }       
+                formation = new Formation(nom, duree, this._lstMatiere);
+                FormationDB.GetInstance().Insert(formation);
+                FormationMatiereDB.GetInstance().Insert(formation, this._lstMatiere);
+                tb_nomFormation.Text = "";
+                tb_dureeFormation.Text = "";
+                tbk_errorMessage.Text = "La formation à correctement été ajouté";
             }
-            catch(Exception)
+            catch(Exception error)
             {
-                tbk_errorMessage.Text = "Désolé, une erreur est survenu lors de l'ajout de la formation, veuillez vérifier les informations renseignées et recommencer.";
+                tbk_errorMessage.Text = error.Message;
             }
-            
         }
     }
 }

@@ -30,7 +30,8 @@ namespace ItechSupEDT
 		
         private void mi_ajout_formation_Click(object sender, RoutedEventArgs e)
         {
-            Ajout_UC.AjoutFormation ajoutFormation = new Ajout_UC.AjoutFormation();
+            List<Nameable> lstMatiere = new List<Nameable>();
+            Ajout_UC.AjoutFormation ajoutFormation = new Ajout_UC.AjoutFormation(lstMatiere);
             this.Ajout.Content = ajoutFormation;
 		}
 		

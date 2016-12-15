@@ -122,6 +122,10 @@
     <Compile Include="Modele\Promotion.cs" />
     <Compile Include="Modele\Salle.cs" />
     <Compile Include="Modele\Session.cs" />
+    <Compile Include="Outils\DatabaseConnection.cs" />
+    <Compile Include="Outils\FormationDB.cs" />
+    <Compile Include="Outils\FormationMatiereDB.cs" />
+    <Compile Include="Outils\MatiereDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

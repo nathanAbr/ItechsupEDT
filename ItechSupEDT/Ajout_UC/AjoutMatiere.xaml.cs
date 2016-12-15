@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ItechSupEDT.Modele;
+using ItechSupEDT.Outils;
 
 namespace ItechSupEDT.Ajout_UC
 {
@@ -57,6 +58,7 @@ namespace ItechSupEDT.Ajout_UC
                 this.tbk_error.Text = "";
                 this.tbk_error.Visibility = Visibility.Collapsed;
             }
+            MatiereDB.GetInstance().Insert(new Matiere(this.tb_nomMatiere.Text));
             this.LstMatiere.Add(new Matiere(this.tb_nomMatiere.Text));
             this.tb_nomMatiere.Text = "";
             this.tbk_retourMessage.Text = "Matière Ajoutée";

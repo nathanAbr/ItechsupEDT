@@ -18,6 +18,7 @@
             <TextBlock Margin="5,5,5,5">Durée de la formation :</TextBlock>
             <TextBox x:Name="tb_dureeFormation" MinWidth="150"/>
         </StackPanel>
+        <ContentControl x:Name="MultiSelect"/>
         <StackPanel Margin="5">
             <Button x:Name="btn_ajoutFormation" Content="Ajouter" Width="100" Click="btn_ajoutFormation_Click"/>
         </StackPanel>
