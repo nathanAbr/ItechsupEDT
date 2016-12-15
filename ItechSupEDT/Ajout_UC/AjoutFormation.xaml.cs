@@ -58,8 +58,8 @@ namespace ItechSupEDT.Ajout_UC
                 formation = new Formation(nom, duree, this._lstMatiere);
                 FormationDB.GetInstance().Insert(formation);
                 FormationMatiereDB.GetInstance().Insert(formation, this._lstMatiere);
-                tb_nomFormation.Text = "";
-                tb_dureeFormation.Text = "";
+                tb_nomFormation.Clear();
+                tb_dureeFormation.Clear();
                 tbk_errorMessage.Text = "La formation à correctement été ajouté";
             }
             catch(Exception error)

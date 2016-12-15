@@ -44,7 +44,7 @@ namespace ItechSupEDT
         private void mi_ajout_promotion_Click(object sender, RoutedEventArgs e)
         {
             List<Nameable> lstEleves = new List<Nameable>();
-            AjoutPromotion ajoutPromotion = new AjoutPromotion(new List<Formation>(), lstEleves);
+            AjoutPromotion ajoutPromotion = new AjoutPromotion(new List<Formation>());
             this.Ajout.Content = ajoutPromotion;
         }
 

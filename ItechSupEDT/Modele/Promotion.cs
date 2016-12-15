@@ -14,10 +14,17 @@ namespace ItechSupEDT.Modele
         private List<Eleve> lstEleves;
         private Formation formation;
         private List<Session> lstSessions;
+        private int id;
         public String Nom
         {
             get { return this.nom; }
             set { this.nom = value; }
+        }
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
         }
         public DateTime DateDebut
         {
@@ -44,18 +51,14 @@ namespace ItechSupEDT.Modele
             get { return this.lstSessions; }
             set { this.lstSessions = value; }
         }
-        public Promotion(String _nom, DateTime _dateDebut, DateTime _dateFin, List<Eleve> _lstEleves, Formation _formation)
+        public Promotion(String _nom, DateTime _dateDebut, DateTime _dateFin, Formation _formation)
         {
-            if (_lstEleves.Count < 2)
-            {
-                throw new PromotionException("Une promotion doit avoir au moins deux élèves");
-            }
             this.Nom = _nom;
             this.DateDebut = _dateDebut;
             this.DateFin = _dateFin;
             this.Formation = _formation;
             this.LstSessions = new List<Session>();
-            this.LstEleves = _lstEleves;
+            this.LstEleves = new List<Eleve>();
         }
         public void AddEleve(Eleve eleve)
         {

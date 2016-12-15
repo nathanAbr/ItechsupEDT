@@ -13,6 +13,7 @@ namespace ItechSupEDT.Outils
     {
         private List<Formation> _lstFormation = new List<Formation>();
         private static FormationDB instance;
+        Formation formation;
         
         public static FormationDB GetInstance()
         {
@@ -22,6 +23,12 @@ namespace ItechSupEDT.Outils
             }
 
             return instance;
+        }
+
+        public List<Formation> LstFormation
+        {
+            get { return this._lstFormation; }
+            set { this._lstFormation = value; }
         }
 
         public FormationDB()
@@ -34,16 +41,11 @@ namespace ItechSupEDT.Outils
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                _lstFormation.Add(new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation"].ToString())));
+                formation = new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation"].ToString()));
+                _lstFormation.Add(formation);
             }
             reader.Close();
             cmd.Dispose();
-        }
-
-        public List<Formation> LstFormation
-        {
-            get { return this._lstFormation; }
-            set { this._lstFormation = value; }
         }
 
         public void Insert(Formation formation)

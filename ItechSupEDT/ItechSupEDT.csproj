@@ -126,6 +126,7 @@
     <Compile Include="Outils\FormationDB.cs" />
     <Compile Include="Outils\FormationMatiereDB.cs" />
     <Compile Include="Outils\MatiereDB.cs" />
+    <Compile Include="Outils\PromotionDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
