@@ -24,9 +24,9 @@ namespace ItechSupEDT.Ajout_UC
     {
         private ObservableCollection<String> objectList;
         private ObservableCollection<String> lstNom;
-        private List<MultiSelectedObject> maList;
+        private List<Nameable> maList;
 
-        public List<MultiSelectedObject> MaList
+        public List<Nameable> MaList
         {
             get { return maList; }
             set { maList = value; }
@@ -39,13 +39,13 @@ namespace ItechSupEDT.Ajout_UC
             get { return (List<MultiSelectedObject>)GetValue(multiSelectObject); }
             set { SetValue(multiSelectObject, value); }
         }**/
-        public MutliSelectPickList(List<MultiSelectedObject> _maList)
+        public MutliSelectPickList(List<Nameable> _maList)
         {
             InitializeComponent();
             objectList = new ObservableCollection<String>();
             lstNom = new ObservableCollection<String>();
             this.MaList = _maList;
-            foreach(MultiSelectedObject objet in this.MaList)
+            foreach(Nameable objet in this.MaList)
             {
                 this.objectList.Add(objet.getNom());
             }
