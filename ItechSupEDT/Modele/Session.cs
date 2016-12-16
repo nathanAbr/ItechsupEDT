@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItechSupEDT.Modele
 {
-    public class Session
+    public class Session : Nameable
     {
         private DateTime dateDebut;
         private DateTime dateFin;
@@ -15,6 +15,14 @@ namespace ItechSupEDT.Modele
         private Matiere matiere;
         private Formateur formateur;
         private Salle salle;
+        private int id;
+        private String nom;
+
+        public String Nom
+        {
+            get { return this.nom; }
+            set { this.nom = value; }
+        }
         public DateTime DateDebut
         {
             get { return this.dateDebut; }
@@ -50,6 +58,12 @@ namespace ItechSupEDT.Modele
             get { return this.salle; }
             set { this.salle = value; }
         }
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
+        }
         public Session(DateTime _dateDebut, DateTime _dateFin, Promotion _promo, Matiere _matiere, Salle _salle)
         {
             this.DateDebut = _dateDebut;
@@ -66,6 +80,11 @@ namespace ItechSupEDT.Modele
             this.Matiere = _matiere;
             this.Salle = _salle;
             this.Formateur = _formateur;
+        }
+
+        public string getNom()
+        {
+            return this.Nom;
         }
     }
 }

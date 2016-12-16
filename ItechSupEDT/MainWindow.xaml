@@ -27,8 +27,8 @@
                 </MenuItem>
             </Menu>
         </StackPanel>
+        <TextBlock x:Name="tbk_errorMessage" />
         <ContentControl x:Name="Ajout"/>
-
     </DockPanel>
 
 </Window>

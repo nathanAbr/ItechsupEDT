@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ItechSupEDT.Ajout_UC;
 using ItechSupEDT.Modele;
+using ItechSupEDT.Outils;
 
 namespace ItechSupEDT
 {
@@ -26,6 +27,8 @@ namespace ItechSupEDT
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
+            View_UC.ViewSession viewSession = new View_UC.ViewSession();
+            this.Ajout.Content = viewSession;
         }
 		
         private void mi_ajout_formation_Click(object sender, RoutedEventArgs e)
