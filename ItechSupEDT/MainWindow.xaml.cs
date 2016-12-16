@@ -70,5 +70,17 @@ namespace ItechSupEDT
             Ajout_UC.AjoutMatiere ajoutMatiere = new Ajout_UC.AjoutMatiere(matiere);
             this.Ajout.Content = ajoutMatiere;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutSalle ajoutSalle = new AjoutSalle();
+            this.Ajout.Content = ajoutSalle;
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            AjoutEleve ajoutEleve = new AjoutEleve();
+            this.Ajout.Content = ajoutEleve;
+        }
     }
 }
