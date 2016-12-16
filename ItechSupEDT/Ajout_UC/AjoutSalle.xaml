@@ -8,6 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" BorderThickness="1,1,1,1" BorderBrush="Black">
         <StackPanel>
+            <TextBlock x:Name="tbk_errorMessage" />
             <StackPanel x:Name="sp_Ajout" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Ajouter une Salle" HorizontalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal">

@@ -13,6 +13,7 @@ namespace ItechSupEDT.Outils
     {
         private List<Promotion> _lstPromotion = new List<Promotion>();
         private static PromotionDB instance;
+        Promotion promotion;
 
         public static PromotionDB GetInstance()
         {
@@ -26,6 +27,20 @@ namespace ItechSupEDT.Outils
 
         public PromotionDB()
         {
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+            cmd.CommandText = "SELECT * FROM promotion p INNER JOIN formation f ON f.id_formation = p.id_formation_promotion";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = DatabaseConnection.GetInstance().Connect;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                promotion = new Promotion(reader["nom_promotion"].ToString(), (DateTime)reader["dateDebut_promotion"], (DateTime)reader["dateFin_promotion"], new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation_promotion"].ToString())));
+                promotion.Id = int.Parse(reader["id_promotion"].ToString());
+                _lstPromotion.Add(promotion);
+            }
+            reader.Close();
+            cmd.Dispose();
         }
 
         public List<Promotion> LstPromotion

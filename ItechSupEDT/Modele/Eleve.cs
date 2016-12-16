@@ -14,10 +14,17 @@ namespace ItechSupEDT.Modele
         private String mail;
         private Promotion promotion;
         private List<Absence> lstAbsences;
+        private int id;
         public String Nom
         {
             get { return this.nom; }
             set { this.nom = value; }
+        }
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
         }
         public String Prenom
         {

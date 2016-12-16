@@ -11,10 +11,17 @@ namespace ItechSupEDT.Modele
         private String nom;
         private int capacite;
         private List<Session> lstSessions;
+        int id;
         public String Nom
         {
             get { return this.nom; }
             set { this.nom = value; }
+        }
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
         }
         public int Capacite
         {

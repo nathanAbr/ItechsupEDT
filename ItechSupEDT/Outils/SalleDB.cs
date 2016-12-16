@@ -9,53 +9,53 @@ using System.Threading.Tasks;
 
 namespace ItechSupEDT.Outils
 {
-    class MatiereDB
+    class SalleDB
     {
-        private List<Matiere> _lstMatiere = new List<Matiere>();
-        private static MatiereDB instance;
-        Matiere matiere;
+        private List<Salle> _lstSalle = new List<Salle>();
+        private static SalleDB instance;
+        Salle salle;
 
-        public static MatiereDB GetInstance()
+        public static SalleDB GetInstance()
         {
             if (instance == null)
             {
-                instance = new MatiereDB();
+                instance = new SalleDB();
             }
 
             return instance;
         }
 
-        public MatiereDB()
+        public SalleDB()
         {
             SqlCommand cmd = new SqlCommand();
             SqlDataReader reader;
-            cmd.CommandText = "SELECT * FROM matiere";
+            cmd.CommandText = "SELECT * FROM salle";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                matiere = new Matiere(reader["nom_matiere"].ToString());
-                matiere.Id = int.Parse(reader["id_matiere"].ToString());
-                _lstMatiere.Add(matiere);
+                salle = new Salle(reader["nom_salle"].ToString(), int.Parse(reader["capacite_salle"].ToString()));
+                salle.Id = int.Parse(reader["id_salle"].ToString());
+                _lstSalle.Add(salle);
             }
             reader.Close();
             cmd.Dispose();
         }
 
-        public List<Matiere> LstMatiere
+        public List<Salle> LstSalle
         {
-            get { return this._lstMatiere; }
-            set { this._lstMatiere = value; }
+            get { return this._lstSalle; }
+            set { this._lstSalle = value; }
         }
 
-        public void Insert(Matiere matiere)
+        public void Insert(Salle salle)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO matiere (nom_matiere) OUTPUT INSERTED.id_matiere VALUES ('" + matiere.Nom + "')";
+            cmd.CommandText = "INSERT INTO salle (nom_salle, capacite_salle) OUTPUT INSERTED.id_salle VALUES ('" + salle.Nom + "', "+ salle.Capacite +")";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            matiere.Id = (int)cmd.ExecuteScalar();
+            salle.Id = (int)cmd.ExecuteScalar();
             cmd.Dispose();
         }
     }

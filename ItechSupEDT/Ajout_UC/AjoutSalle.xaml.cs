@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ItechSupEDT.Modele;
+using ItechSupEDT.Outils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +29,18 @@ namespace ItechSupEDT.Ajout_UC
 
         private void btn_Valider_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SalleDB.GetInstance().Insert(new Salle(tb_nomSalle.Text, int.Parse(tb_capaciteSalle.Text)));
+                SalleDB.GetInstance().LstSalle.Add(new Salle(tb_nomSalle.Text, int.Parse(tb_capaciteSalle.Text)));
+                tb_nomSalle.Clear();
+                tb_capaciteSalle.Clear();
+                tbk_errorMessage.Text = "La salle à bien été ajoutée";
+            }
+            catch (Exception error)
+            {
+                tbk_errorMessage.Text = error.Message;
+            }
         }
     }
 }

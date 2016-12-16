@@ -23,24 +23,15 @@ namespace ItechSupEDT.Ajout_UC
     public partial class AjoutMatiere : UserControl
     {
 
-        private List<Matiere> lstMatiere;
-        public List<Matiere> LstMatiere
-        {
-            get { return this.lstMatiere; }
-            set { this.lstMatiere = value; }
-        }
-
         public AjoutMatiere()
         {
             InitializeComponent();
-            this.LstMatiere = new List<Matiere>();
             this.sp_valider.Visibility = Visibility.Collapsed;
         }
 
         public AjoutMatiere(Matiere _matiere)
         {
             InitializeComponent();
-            this.LstMatiere = new List<Matiere>();
             this.sp_valider.Visibility = Visibility.Collapsed;
             this.tb_nomMatiere.Text = _matiere.Nom;
         }
@@ -59,7 +50,7 @@ namespace ItechSupEDT.Ajout_UC
                 this.tbk_error.Visibility = Visibility.Collapsed;
             }
             MatiereDB.GetInstance().Insert(new Matiere(this.tb_nomMatiere.Text));
-            this.LstMatiere.Add(new Matiere(this.tb_nomMatiere.Text));
+            MatiereDB.GetInstance().LstMatiere.Add(new Matiere(this.tb_nomMatiere.Text));
             this.tb_nomMatiere.Text = "";
             this.tbk_retourMessage.Text = "Matière Ajoutée";
             this.sp_Ajout.Visibility = Visibility.Collapsed;
