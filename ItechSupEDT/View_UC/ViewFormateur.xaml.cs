@@ -34,6 +34,7 @@ namespace ItechSupEDT.View_UC
                     this._lstFormateur.Add(formateur);
                 }
                 lv_formateur.ItemsSource = this._lstFormateur;
+                foreach ()
             }
             catch (Exception error)
             {
