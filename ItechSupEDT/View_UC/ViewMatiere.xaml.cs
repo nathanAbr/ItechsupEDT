@@ -19,23 +19,24 @@ using System.Windows.Shapes;
 namespace ItechSupEDT.View_UC
 {
     /// <summary>
-    /// Logique d'interaction pour ViewSession.xaml
+    /// Logique d'interaction pour ViewMatiere.xaml
     /// </summary>
-    public partial class ViewSession : UserControl
+
+    public partial class ViewMatiere : UserControl
     {
-        private ObservableCollection<Session> _lstSession = new ObservableCollection<Session>();
-        public ViewSession()
+        private ObservableCollection<Matiere> _lstMatiere = new ObservableCollection<Matiere>();
+        public ViewMatiere()
         {
             InitializeComponent();
             try
             {
-                foreach (Session session in SessionDB.GetInstance().LstSession)
+                foreach (Matiere matiere in MatiereDB.GetInstance().LstMatiere)
                 {
-                    this._lstSession.Add(session);
+                    this._lstMatiere.Add(matiere);
                 }
-                lv_session.ItemsSource = this._lstSession;
+                lv_matiere.ItemsSource = this._lstMatiere;
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 tbk_errorMessage.Text = error.Message;
             }

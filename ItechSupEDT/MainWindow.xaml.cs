@@ -68,10 +68,8 @@ namespace ItechSupEDT
 
         private void mi_afficher_matiere_Click(object sender, RoutedEventArgs e)
         {
-            // Récuperer la matière depuis la base de donnée (id = 1 par exemple)
-            Matiere matiere = new Modele.Matiere("NomMatiere");
-            Ajout_UC.AjoutMatiere ajoutMatiere = new Ajout_UC.AjoutMatiere(matiere);
-            this.Ajout.Content = ajoutMatiere;
+            View_UC.ViewMatiere viewMatiere = new View_UC.ViewMatiere();
+            this.Ajout.Content = viewMatiere;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

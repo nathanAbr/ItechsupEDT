@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ItechSupEDT.View_UC.ViewSession"
+﻿<UserControl x:Class="ItechSupEDT.View_UC.ViewMatiere"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,12 +8,10 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <TextBlock x:Name="tbk_errorMessage" />
-        <ListView Margin="5,5,5,5" Name="lv_session" HorizontalAlignment="Stretch">
+        <ListView Margin="5,5,5,5" Name="lv_matiere" HorizontalAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" Width="200" DisplayMemberBinding="{Binding Nom}" />
-                    <GridViewColumn Header="Promotion" Width="200" DisplayMemberBinding="{Binding Promotion.Nom}" />
-                    <GridViewColumn Header="Matiere" Width="200" DisplayMemberBinding="{Binding Matiere.Nom}" />
                 </GridView>
             </ListView.View>
         </ListView>
