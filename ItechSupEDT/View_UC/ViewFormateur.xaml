@@ -15,6 +15,15 @@
                     <GridViewColumn Header="Prénom" Width="200" DisplayMemberBinding="{Binding Prenom}" />
                     <GridViewColumn Header="Télephone" Width="200" DisplayMemberBinding="{Binding Tel}" />
                     <GridViewColumn Header="E-Mail" Width="200" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn>
+                        <ListView Margin="5,5,5,5" Name="lv_matiere" HorizontalAlignment="Stretch">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Matières" Width="200" DisplayMemberBinding="{Binding Nom}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

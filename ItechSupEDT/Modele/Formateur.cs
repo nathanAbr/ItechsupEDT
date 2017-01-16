@@ -73,6 +73,16 @@ namespace ItechSupEDT.Modele
             this.Telephone = _telephone;
             this.LstSessions = new List<Session>();
         }
+
+        public Formateur(String _nom, String _prenom, String _mail, String _telephone, int _id)
+        {
+            this.Nom = _nom;
+            this.Prenom = _prenom;
+            this.Mail = _mail;
+            this.Telephone = _telephone;
+            this.Id = _id;
+            this.LstSessions = new List<Session>();
+        }
         public float NbHeuresTravaillees(DateTime _dateDebut, DateTime _dateFin)
         {
             float nbHeuresTravaillees = 0;

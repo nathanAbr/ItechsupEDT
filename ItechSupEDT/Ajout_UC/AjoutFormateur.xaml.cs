@@ -23,6 +23,7 @@ namespace ItechSupEDT.Ajout_UC
     /// </summary>
     public partial class AjoutFormateur : UserControl
     {
+        MutliSelectPickList multiSelect;
         private Formateur formateur;
         private List<Matiere> _lstMatiere = new List<Matiere>();
         public AjoutFormateur(List<Nameable> _lstMatiere)
@@ -32,7 +33,7 @@ namespace ItechSupEDT.Ajout_UC
             {
                 _lstMatiere.Add(matiere);
             }
-            MutliSelectPickList multiSelect = new MutliSelectPickList(_lstMatiere);
+            multiSelect = new MutliSelectPickList(_lstMatiere);
             this.MultiSelect.Content = multiSelect;
         }
 
@@ -66,7 +67,7 @@ namespace ItechSupEDT.Ajout_UC
                 tb_prenomFormateur.Clear();
                 tb_telFormateur.Clear();
                 tb_mailFormateur.Clear();
-                tbk_errorMessage.Text = "La formation à correctement été ajouté";
+                tbk_errorMessage.Text = "Le formateur à correctement été ajouté";
             }
             catch (Exception error)
             {
