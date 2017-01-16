@@ -23,7 +23,7 @@
                     <MenuItem x:Name="mi_afficher_matiere" Header="Matiere" Click="mi_afficher_matiere_Click"/>
                     <MenuItem x:Name="mi_afficher_promotion" Header="Promotion"/>
                     <MenuItem Header="Eleve" />
-                    <MenuItem x:Name="mi_afficher_formateur" Header="Formateur"/>
+                    <MenuItem x:Name="mi_afficher_formateur" Header="Formateur" Click="mi_afficher_formateur_Click"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

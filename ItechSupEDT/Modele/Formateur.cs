@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItechSupEDT.Modele
 {
-    public class Formateur : Destinataire
+    public class Formateur : Nameable, Destinataire
     {
         private String nom;
         private String prenom;
@@ -14,10 +14,17 @@ namespace ItechSupEDT.Modele
         private String telephone;
         private List<Matiere> lstMatiere;
         private List<Session> lstSessions;
+        private int id;
         public String Nom
         {
             get { return this.nom; }
             set { this.nom = value; }
+        }
+
+        public int Id
+        {
+            get { return this.id; }
+            set { this.id = value; }
         }
         public String Prenom
         {
@@ -55,6 +62,15 @@ namespace ItechSupEDT.Modele
             this.Mail = _mail;
             this.Telephone = _telephone;
             this.LstMatiere = _lstMatiere;
+            this.LstSessions = new List<Session>();
+        }
+
+        public Formateur(String _nom, String _prenom, String _mail, String _telephone)
+        {
+            this.Nom = _nom;
+            this.Prenom = _prenom;
+            this.Mail = _mail;
+            this.Telephone = _telephone;
             this.LstSessions = new List<Session>();
         }
         public float NbHeuresTravaillees(DateTime _dateDebut, DateTime _dateFin)
@@ -100,6 +116,11 @@ namespace ItechSupEDT.Modele
             public FormateurException(string message) : base(message)
             {
             }
+        }
+
+        public String getNom()
+        {
+            return this.Nom;
         }
     }
 }

@@ -56,6 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Outils\FormateurDB.cs" />
+    <Compile Include="Outils\FormateurMatiereDB.cs" />
+    <Compile Include="View_UC\ViewFormateur.xaml.cs">
+      <DependentUpon>ViewFormateur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View_UC\ViewMatiere.xaml.cs">
       <DependentUpon>ViewMatiere.xaml</DependentUpon>
     </Compile>
@@ -123,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View_UC\ViewFormateur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View_UC\ViewMatiere.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
