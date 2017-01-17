@@ -25,7 +25,6 @@ namespace ItechSupEDT.Ajout_UC
     {
         MutliSelectPickList multiSelect;
         private Formateur formateur;
-        private List<Matiere> _lstMatiere = new List<Matiere>();
         public AjoutFormateur(List<Nameable> _lstMatiere)
         {
             InitializeComponent();
@@ -48,10 +47,11 @@ namespace ItechSupEDT.Ajout_UC
 
         private void btn_ajoutFormation_Click(object sender, RoutedEventArgs e)
         {
+            List<Matiere> _lstMatiere = new List<Matiere>();
             List<Nameable> lstMatiere = new List<Nameable>(((MutliSelectPickList)this.MultiSelect.Content).GetSelectedObjects());
             foreach (Nameable matiere in lstMatiere)
             {
-                this._lstMatiere.Add((Matiere)matiere);
+                _lstMatiere.Add((Matiere)matiere);
             }
 
             String nom = tb_nomFormateur.Text;
@@ -62,7 +62,7 @@ namespace ItechSupEDT.Ajout_UC
             {
                 formateur = new Formateur(nom, prenom, mail, tel);
                 FormateurDB.GetInstance().Insert(formateur);
-                FormateurMatiereDB.GetInstance().Insert(formateur, this._lstMatiere);
+                FormateurMatiereDB.GetInstance().Insert(formateur, _lstMatiere);
                 tb_nomFormateur.Clear();
                 tb_prenomFormateur.Clear();
                 tb_telFormateur.Clear();

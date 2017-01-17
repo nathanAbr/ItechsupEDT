@@ -40,5 +40,24 @@ namespace ItechSupEDT.View_UC
                 tbk_errorMessage.Text = error.Message;
             }
         }
+
+        private void lv_formateur_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ObservableCollection<Matiere> _lstMatiereFormateur = new ObservableCollection<Matiere>();
+            try
+            {
+                Formateur formateur = (Formateur)lv_formateur.SelectedItem;
+                foreach (Matiere matiere in FormateurMatiereDB.GetInstance().MatiereFormateur(formateur))
+                {
+                    _lstMatiereFormateur.Add(matiere);
+                }
+                lv_matiere.ItemsSource = _lstMatiereFormateur;
+            }
+            catch (Exception error)
+            {
+                tbk_errorMessage.Text = error.Message;
+            }
+        }
+        
     }
 }

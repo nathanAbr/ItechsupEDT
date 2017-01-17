@@ -41,5 +41,23 @@ namespace ItechSupEDT.Outils
             cmd.ExecuteReader();
             cmd.Dispose();
         }
+
+        public List<Matiere> MatiereFormateur(Formateur formateur)
+        {
+            List<Matiere> _listMatiere = new List<Matiere>();
+            SqlCommand cmd = new SqlCommand();
+            SqlDataReader reader;
+            cmd.CommandText = "SELECT * from matiere INNER JOIN formateur_matiere ON matiere.id_matiere = formateur_matiere.id_matiere AND id_formateur = " + formateur.Id;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = DatabaseConnection.GetInstance().Connect;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                _listMatiere.Add(new Matiere(reader["nom_matiere"].ToString()));
+            }
+            reader.Close();
+            cmd.Dispose();
+            return _listMatiere;
+        }
     }
 }
