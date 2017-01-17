@@ -57,6 +57,7 @@ namespace ItechSupEDT.Outils
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             promotion.Id = (int)cmd.ExecuteScalar();
             cmd.Dispose();
+            this._lstPromotion.Add(promotion);
         }
     }
 }

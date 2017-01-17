@@ -57,6 +57,7 @@ namespace ItechSupEDT.Outils
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             formateur.Id = (int)cmd.ExecuteScalar();
             cmd.Dispose();
+            this._lstFormateur.Add(formateur);
         }
     }
 }

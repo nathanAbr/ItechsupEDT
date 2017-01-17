@@ -17,6 +17,7 @@
                     <MenuItem Header="Eleve" Click="MenuItem_Click_1" />
                     <MenuItem Header="Salle" Click="MenuItem_Click" />
                     <MenuItem x:Name="mi_ajout_formateur" Header="Formateur" Click="mi_ajout_formateur_Click" />
+                    <MenuItem x:Name="mi_ajout_session" Header="Session" Click="mi_ajout_session_Click" />
                 </MenuItem>
                 <MenuItem Header="_Afficher">
                     <MenuItem x:Name="mi_afficher_formation" Header="Formation" Click="mi_afficher_formation_Click"/>

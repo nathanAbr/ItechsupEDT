@@ -42,6 +42,7 @@ namespace ItechSupEDT.Outils
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             eleve.Id = (int)cmd.ExecuteScalar();
             cmd.Dispose();
+            this._lstEleve.Add(eleve);
         }
     }
 }

@@ -89,5 +89,11 @@ namespace ItechSupEDT
             View_UC.ViewFormateur viewFormateur = new View_UC.ViewFormateur();
             this.Ajout.Content = viewFormateur;
         }
+
+        private void mi_ajout_session_Click(object sender, RoutedEventArgs e)
+        {
+            Ajout_UC.AjoutSession addSession = new Ajout_UC.AjoutSession();
+            this.Ajout.Content = addSession;
+        }
     }
 }

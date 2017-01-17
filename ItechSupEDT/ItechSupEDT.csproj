@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Ajout_UC\AjoutSession.xaml.cs">
+      <DependentUpon>AjoutSession.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Outils\FormateurDB.cs" />
     <Compile Include="Outils\FormateurMatiereDB.cs" />
     <Compile Include="View_UC\ViewFormateur.xaml.cs">
@@ -88,6 +91,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Ajout_UC\AjoutSalle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ajout_UC\AjoutSession.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
