@@ -51,7 +51,6 @@ namespace ItechSupEDT.Ajout_UC
         {
             InitializeComponent();
             this.recupFormateur();
-            this.recupMatiere();
             this.recupPromotion();
             this.recupSalle();
         }
@@ -99,10 +98,10 @@ namespace ItechSupEDT.Ajout_UC
             this.cb_lstSalle.SelectedIndex = 0;
         }
 
-        private void recupMatiere()
+        private void recupMatiere(Formateur formateur)
         {
             this.LstMatiere = new Dictionary<string, Matiere>();
-            foreach (Matiere matiere in MatiereDB.GetInstance().LstMatiere)
+            foreach (Matiere matiere in FormateurMatiereDB.GetInstance().MatiereFormateur(formateur))
             {
                 this.LstMatiere.Add(matiere.Nom, matiere);
             }
@@ -119,7 +118,12 @@ namespace ItechSupEDT.Ajout_UC
             }
             this.cb_lstFormateur.ItemsSource = this.LstFormateur.Keys;
             this.cb_lstFormateur.SelectedIndex = 0;
+            this.recupMatiere(LstFormateur[cb_lstFormateur.SelectedItem.ToString()]);
         }
 
+        private void cb_lstFormateur_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.recupMatiere(LstFormateur[cb_lstFormateur.SelectedItem.ToString()]);
+        }
     }
 }
