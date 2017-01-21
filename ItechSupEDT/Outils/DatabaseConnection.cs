@@ -27,9 +27,11 @@ namespace ItechSupEDT.Outils
         }
         private DatabaseConnection()
         {
-            this.Connect = new SqlConnection();
-            this.Connect.ConnectionString = "Data Source=PC-NATHAN\\SQLEXPRESS;Initial Catalog=Itechsup;Integrated Security=True";
-            this.Connect.Open();
+            using(this.Connect = new SqlConnection("Data Source=PC-NATHAN\\SQLEXPRESS;Initial Catalog=Itechsup;Integrated Security=True"))
+            {
+                this.Connect = new SqlConnection("Data Source=PC-NATHAN\\SQLEXPRESS;Initial Catalog=Itechsup;Integrated Security=True");
+                this.Connect.Open();
+            }
         }
     }
 }

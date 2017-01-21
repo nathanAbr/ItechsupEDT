@@ -38,16 +38,18 @@ namespace ItechSupEDT.Outils
             cmd.CommandText = "SELECT * FROM sessionCours sc INNER JOIN promotion p ON p.id_promotion = sc.id_promotion_sessionCours INNER JOIN matiere m ON m.id_matiere = sc.id_matiere_sessionCours INNER JOIN salle s ON s.id_salle = sc.id_salle_sessionCours INNER JOIN formateur f ON f.id_formateur = sc.id_formateur_sessionCours INNER JOIN formation ON formation.id_formation = p.id_formation_promotion";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            using (reader = cmd.ExecuteReader())
             {
-                session = new Session((DateTime)reader["dateDebut_sessionCours"], (DateTime)reader["dateFin_sessionCours"], new Promotion(reader["nom_promotion"].ToString(), (DateTime)reader["dateDebut_promotion"], (DateTime)reader["dateFin_promotion"], new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()))), new Matiere(reader["nom_matiere"].ToString()), new Salle(reader["nom_salle"].ToString(), int.Parse(reader["capacite_salle"].ToString())), new Formateur(reader["nom_formateur"].ToString(), reader["prenom_formateur"].ToString(), reader["mail_formateur"].ToString(), reader["tel_formateur"].ToString()));
-                session.Id = int.Parse(reader["id_sessionCours"].ToString());
-                session.Nom = "Session du " + reader["dateDebut_sessionCours"].ToString() + " au " + reader["dateFin_sessionCours"].ToString();
-                _lstSession.Add(session);
+                while (reader.Read())
+                {
+                    session = new Session((DateTime)reader["dateDebut_sessionCours"], (DateTime)reader["dateFin_sessionCours"], new Promotion(reader["nom_promotion"].ToString(), (DateTime)reader["dateDebut_promotion"], (DateTime)reader["dateFin_promotion"], new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()))), new Matiere(reader["nom_matiere"].ToString()), new Salle(reader["nom_salle"].ToString(), int.Parse(reader["capacite_salle"].ToString())), new Formateur(reader["nom_formateur"].ToString(), reader["prenom_formateur"].ToString(), reader["mail_formateur"].ToString(), reader["tel_formateur"].ToString()));
+                    session.Id = int.Parse(reader["id_sessionCours"].ToString());
+                    session.Nom = "Session du " + reader["dateDebut_sessionCours"].ToString() + " au " + reader["dateFin_sessionCours"].ToString();
+                    _lstSession.Add(session);
+                }
+                reader.Close();
+                cmd.Dispose();
             }
-            reader.Close();
-            cmd.Dispose();
         }
 
         public void Insert(Session session, Salle salle, Formateur formateur, Promotion promotion, Matiere matiere, DateTime dateDebut, DateTime DateFin)
@@ -64,6 +66,7 @@ namespace ItechSupEDT.Outils
             }
             catch(Exception error)
             {
+                throw error;
             }
         }
     }

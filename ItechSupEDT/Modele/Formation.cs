@@ -56,6 +56,14 @@ namespace ItechSupEDT.Modele
             this.LstPromotions = new List<Promotion>();
         }
 
+        public Formation(String _nom, float _nbHeuresTotal, List<Matiere> _lstMatiere, List<Promotion> _lstPromotion)
+        {
+            this.Nom = _nom;
+            this.NbHeuresTotal = _nbHeuresTotal;
+            this.LstMatiere = _lstMatiere;
+            this.LstPromotions = _lstPromotion;
+        }
+
         public int Id
         {
             get { return this.id; }

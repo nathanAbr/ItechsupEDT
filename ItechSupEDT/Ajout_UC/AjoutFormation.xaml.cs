@@ -57,7 +57,7 @@ namespace ItechSupEDT.Ajout_UC
                 float duree = Single.Parse(nbHeures);
                 formation = new Formation(nom, duree, this._lstMatiere);
                 FormationDB.GetInstance().Insert(formation);
-                FormationMatiereDB.GetInstance().Insert(formation, this._lstMatiere);
+                FormationMatiereDB.GetInstance(formation).Insert(formation, this._lstMatiere);
                 tb_nomFormation.Clear();
                 tb_dureeFormation.Clear();
                 tbk_errorMessage.Text = "La formation à correctement été ajouté";

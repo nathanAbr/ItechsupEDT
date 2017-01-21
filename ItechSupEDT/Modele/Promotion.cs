@@ -68,20 +68,6 @@ namespace ItechSupEDT.Modele
             }
             this.LstEleves.Add(eleve);
         }
-        public bool EstDisponible(DateTime _dateDebut, DateTime _dateFin)
-        {
-            bool disponible = true;
-            foreach (Session session in this.LstSessions)
-            {
-                bool conflitDebut = (_dateDebut > session.DateDebut) && (_dateDebut < session.DateFin);
-                bool conflitFin = (_dateFin > session.DateDebut) && (_dateFin < session.DateFin);
-                if (conflitDebut || conflitFin)
-                {
-                    disponible = false;
-                }
-            }
-            return disponible;
-        }
         List<Session> Destinataire.GetSessions(DateTime _dateDebut, DateTime _dateFin)
         {
             List<Session> lstSessions = new List<Session>();

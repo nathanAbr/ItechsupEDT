@@ -42,6 +42,7 @@ namespace ItechSupEDT.Outils
             while (reader.Read())
             {
                 formation = new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation"].ToString()));
+                //formation.LstMatiere = FormationMatiereDB.GetInstance().MatiereFormation(formation);
                 _lstFormation.Add(formation);
             }
             reader.Close();
@@ -55,6 +56,7 @@ namespace ItechSupEDT.Outils
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             formation.Id = (int)cmd.ExecuteScalar();
+            LstFormation.Add(formation);
             cmd.Dispose();
         }
     }

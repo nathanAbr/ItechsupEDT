@@ -32,15 +32,21 @@ namespace ItechSupEDT.Outils
             cmd.CommandText = "SELECT * FROM promotion p INNER JOIN formation f ON f.id_formation = p.id_formation_promotion";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            using (reader = cmd.ExecuteReader())
             {
-                promotion = new Promotion(reader["nom_promotion"].ToString(), (DateTime)reader["dateDebut_promotion"], (DateTime)reader["dateFin_promotion"], new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation_promotion"].ToString())));
-                promotion.Id = int.Parse(reader["id_promotion"].ToString());
-                _lstPromotion.Add(promotion);
+                while (reader.Read())
+                {
+                    promotion = new Promotion(reader["nom_promotion"].ToString(), (DateTime)reader["dateDebut_promotion"], (DateTime)reader["dateFin_promotion"], new Formation(reader["nom_formation"].ToString(), float.Parse(reader["nbHeures_formation"].ToString()), int.Parse(reader["id_formation"].ToString())));
+                    promotion.Id = int.Parse(reader["id_promotion"].ToString());
+                    LstPromotion.Add(promotion);
+                }
+                reader.Close();
+                cmd.Dispose();
             }
-            reader.Close();
-            cmd.Dispose();
+            foreach (Promotion promotion in LstPromotion)
+            {
+                FormationMatiereDB.GetInstance(promotion.Formation);
+            }
         }
 
         public List<Promotion> LstPromotion

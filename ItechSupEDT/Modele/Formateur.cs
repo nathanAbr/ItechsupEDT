@@ -51,19 +51,6 @@ namespace ItechSupEDT.Modele
             get { return this.lstSessions; }
             set { this.lstSessions = value; }
         }
-        public Formateur(String _nom, String _prenom, String _mail, String _telephone, List<Matiere> _lstMatiere)
-        {
-            if (_lstMatiere.Count < 1)
-            {
-                throw new FormateurException("Un formateur doit avoir au moins une matière.");
-            }
-            this.Nom = _nom;
-            this.Prenom = _prenom;
-            this.Mail = _mail;
-            this.Telephone = _telephone;
-            this.LstMatiere = _lstMatiere;
-            this.LstSessions = new List<Session>();
-        }
 
         public Formateur(String _nom, String _prenom, String _mail, String _telephone)
         {
@@ -71,7 +58,6 @@ namespace ItechSupEDT.Modele
             this.Prenom = _prenom;
             this.Mail = _mail;
             this.Telephone = _telephone;
-            this.LstSessions = new List<Session>();
         }
 
         public Formateur(String _nom, String _prenom, String _mail, String _telephone, int _id)
@@ -81,7 +67,6 @@ namespace ItechSupEDT.Modele
             this.Mail = _mail;
             this.Telephone = _telephone;
             this.Id = _id;
-            this.LstSessions = new List<Session>();
         }
         public float NbHeuresTravaillees(DateTime _dateDebut, DateTime _dateFin)
         {

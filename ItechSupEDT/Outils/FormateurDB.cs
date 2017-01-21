@@ -34,19 +34,25 @@ namespace ItechSupEDT.Outils
 
         public FormateurDB()
         {
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-            cmd.CommandText = "SELECT * FROM formateur";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                formateur = new Formateur(reader["nom_formateur"].ToString(), reader["prenom_formateur"].ToString(), reader["mail_formateur"].ToString(), reader["tel_formateur"].ToString(), int.Parse(reader["id_formateur"].ToString()));
-                _lstFormateur.Add(formateur);
-            }
-            reader.Close();
-            cmd.Dispose();
+
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                cmd.CommandText = "SELECT * FROM formateur";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = DatabaseConnection.GetInstance().Connect;
+                using (reader = cmd.ExecuteReader()) {
+                    while (reader.Read())
+                    {
+                        formateur = new Formateur(reader["nom_formateur"].ToString(), reader["prenom_formateur"].ToString(), reader["mail_formateur"].ToString(), reader["tel_formateur"].ToString(), int.Parse(reader["id_formateur"].ToString()));
+                        LstFormateur.Add(formateur);
+                    }
+                    reader.Close();
+                    foreach (Formateur formateur in LstFormateur)
+                    {
+                        formateur.LstMatiere = FormateurMatiereDB.GetInstance().MatiereFormateur(formateur);
+                    }
+                }
+                cmd.Dispose();
         }
 
        public void Insert(Formateur formateur)

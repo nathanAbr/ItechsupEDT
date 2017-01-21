@@ -10,32 +10,36 @@
         <StackPanel HorizontalAlignment="Center">
             <TextBlock x:Name="tbk_errorMessage" />
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Promotion :" Margin="10,10,0,10"/>
+                <ComboBox x:Name="cb_lstPromotion" Margin="10,10,0,10" SelectionChanged="cb_lstPromotion_SelectionChanged" MinWidth="150"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Matière :" Margin="10,10,0,10" />
+                <ComboBox x:Name="cb_lstMatiere" Margin="10,10,0,10" MinWidth="150" SelectionChanged="cb_lstMatiere_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Date de début :" Margin="10,10,0,10"/>
-                <DatePicker x:Name="dp_dateDebut" Margin="10,10,0,10"/>
+                <DatePicker x:Name="dp_dateDebut" Margin="10,10,0,10" SelectedDateChanged="dp_dateDebut_SelectedDateChanged" />
+                <TextBlock x:Name="tbk_hoursDateDebut" Text="Heures de Début :" Margin="10,10,0,10" Visibility="Collapsed"/>
+                <TextBox x:Name="tb_hoursDateDebut" Width="75" Margin="10,10,0,10" Visibility="Collapsed" MouseLeave="tb_hoursDateDebut_MouseLeave"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Date de Fin :" Margin="10,10,0,10"/>
-                <DatePicker x:Name="dp_dateFin" Margin="10,10,0,10"/>
+                <DatePicker x:Name="dp_dateFin" Margin="10,10,0,10" SelectedDateChanged="dp_dateFin_SelectedDateChanged"/>
+                <TextBlock x:Name="tbk_hoursDateFin" Text="Heures de Fin :" Margin="10,10,0,10" Visibility="Collapsed" />
+                <TextBox x:Name="tb_hoursDateFin" Width="75" Margin="10,10,0,10" Visibility="Collapsed" MouseLeave="tb_hoursDateFin_MouseLeave"/>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Promotion :" Margin="10,10,0,10"/>
-                <ComboBox x:Name="cb_lstPromotion" Margin="10,10,0,10" MinWidth="150"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Formateur :" Margin="10,10,0,10" />
-                <ComboBox x:Name="cb_lstFormateur" Margin="10,10,0,10" SelectionChanged="cb_lstFormateur_SelectionChanged" MinWidth="150"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Matière :" Margin="10,10,0,10" />
-                <ComboBox x:Name="cb_lstMatiere" Margin="10,10,0,10" MinWidth="150"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="right" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Salle :" Margin="10,10,0,10" />
                 <ComboBox x:Name="cb_lstSalle" Margin="10,10,0,10" MinWidth="150"/>
             </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="Formateur :" Margin="10,10,0,10" />
+                <ComboBox x:Name="cb_lstFormateur" Margin="10,10,0,10" MinWidth="150"/>
+            </StackPanel>
             <Button x:Name="btn_valider" Content="Ajouter" Width="100" Click="btn_valider_Click"/>
             <TextBlock Name="tbk_error" HorizontalAlignment="Center" Visibility="Collapsed" Foreground="Red" />
-            <TextBlock Name="tbk_statut" HorizontalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock Name="tbk_statut" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </UserControl>

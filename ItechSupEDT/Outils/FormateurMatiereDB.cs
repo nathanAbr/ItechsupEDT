@@ -45,19 +45,53 @@ namespace ItechSupEDT.Outils
         public List<Matiere> MatiereFormateur(Formateur formateur)
         {
             List<Matiere> _listMatiere = new List<Matiere>();
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-            cmd.CommandText = "SELECT * from matiere INNER JOIN formateur_matiere ON matiere.id_matiere = formateur_matiere.id_matiere AND id_formateur = " + formateur.Id;
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                _listMatiere.Add(new Matiere(reader["nom_matiere"].ToString()));
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                cmd.CommandText = "SELECT * from matiere INNER JOIN formateur_matiere ON matiere.id_matiere = formateur_matiere.id_matiere AND id_formateur = " + formateur.Id;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = DatabaseConnection.GetInstance().Connect;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    _listMatiere.Add(new Matiere(reader["nom_matiere"].ToString(), int.Parse(reader["id_matiere"].ToString())));
+                }
+                reader.Close();
+                cmd.Dispose();
             }
-            reader.Close();
-            cmd.Dispose();
+            catch(Exception error)
+            {
+                throw error;
+            }
             return _listMatiere;
+        }
+
+        public List<Formateur> MatiereFormateur(Matiere matiere)
+        {
+            List<Formateur> _listFormateur = new List<Formateur>();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                cmd.CommandText = "SELECT * from Formateur INNER JOIN formateur_matiere ON formateur.id_formateur = formateur_matiere.id_formateur AND id_matiere = " + matiere.Id;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = DatabaseConnection.GetInstance().Connect;
+                using (reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        _listFormateur.Add(new Formateur(reader["nom_formateur"].ToString(), reader["prenom_formateur"].ToString(), reader["mail_formateur"].ToString(), reader["tel_formateur"].ToString(), int.Parse(reader["id_formateur"].ToString())));
+                    }
+                    reader.Close();
+                }
+                cmd.Dispose();
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            return _listFormateur;
         }
     }
 }

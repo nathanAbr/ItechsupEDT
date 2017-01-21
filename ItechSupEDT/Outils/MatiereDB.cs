@@ -32,14 +32,20 @@ namespace ItechSupEDT.Outils
             cmd.CommandText = "SELECT * FROM matiere";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            
+            using(reader = cmd.ExecuteReader())
             {
-                matiere = new Matiere(reader["nom_matiere"].ToString());
-                matiere.Id = int.Parse(reader["id_matiere"].ToString());
-                _lstMatiere.Add(matiere);
+                while (reader.Read())
+                {
+                    matiere = new Matiere(reader["nom_matiere"].ToString(), int.Parse(reader["id_matiere"].ToString()));
+                    LstMatiere.Add(matiere);
+                }
+                reader.Close();
             }
-            reader.Close();
+            foreach(Matiere matiere in LstMatiere)
+            {
+                matiere.LstFormateurs = FormateurMatiereDB.GetInstance().MatiereFormateur(matiere);
+            }
             cmd.Dispose();
         }
 
@@ -56,6 +62,7 @@ namespace ItechSupEDT.Outils
             cmd.CommandType = CommandType.Text;
             cmd.Connection = DatabaseConnection.GetInstance().Connect;
             matiere.Id = (int)cmd.ExecuteScalar();
+            _lstMatiere.Add(matiere);
             cmd.Dispose();
         }
     }
